@@ -38,7 +38,7 @@ public class TextAreaTest {
         startPage.changeLanguage();
     }
 
-    @Test(dataProvider = "spanishText", priority = 4)
+    @Test(dataProvider = "spanishText",dependsOnMethods = "beforeSpanishTest")
     public void shouldTranslateSpanishRight(String input){
         startPage.cleanField();
         String[] inputArray = Arrays.stream(input.split("\\s")).toArray(value -> new String[value]);
