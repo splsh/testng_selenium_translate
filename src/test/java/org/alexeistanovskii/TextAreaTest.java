@@ -7,7 +7,8 @@ import org.testng.annotations.*;
 import java.util.Arrays;
 
 /**
- * Unit test for simple App.
+ * Tests made for TestNG and Selenium practice.
+ * It takes Google Translate main page and do some functional tests with it.
  */
 public class TextAreaTest {
     StartPage startPage = new StartPage();
@@ -18,7 +19,7 @@ public class TextAreaTest {
     }
 
     @Test(dataProvider = "englishText")
-    public void shouldTranslateItRight(String input) {
+    public void shouldTranslateItRight(String input) {  //translates english to russian text
         startPage.cleanField();
         String[] inputArray = Arrays.stream(input.split("\\s")).toArray(value -> new String[value]);
         startPage.setInputField(inputArray[0]);
@@ -26,7 +27,7 @@ public class TextAreaTest {
     }
 
     @Test(dataProvider = "englishPhrases")
-    public void shouldTranslatePhrasesRight(String input) {
+    public void shouldTranslatePhrasesRight(String input) {  // translates eng to rus phrases
         startPage.cleanField();
         String[] inputArray = Arrays.stream(input.split("\\+")).toArray(value -> new String[value]);
         startPage.setInputField(inputArray[0]);
@@ -36,10 +37,10 @@ public class TextAreaTest {
     @Test(priority = 3)
     public void beforeSpanishTest(){
         startPage.changeLanguage();
-    }
+    }   //not elegant way to switch language
 
     @Test(dataProvider = "spanishText",dependsOnMethods = "beforeSpanishTest")
-    public void shouldTranslateSpanishRight(String input){
+    public void shouldTranslateSpanishRight(String input){      // translate spanish to russian
         startPage.cleanField();
         String[] inputArray = Arrays.stream(input.split("\\s")).toArray(value -> new String[value]);
         startPage.setInputField(inputArray[0]);
