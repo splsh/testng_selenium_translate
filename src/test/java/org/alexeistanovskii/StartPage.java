@@ -34,6 +34,7 @@ public class StartPage {
     private final By SITES_BUTTON = By.xpath("//span[text()= 'Сайты']");
     private final By URL_INPUT_FIELD= By.xpath("//input[@type='text'][@title='URL не должен быть пустым или иметь некорректный формат']");
     private final By TRANSLATE_SITE_BUTTON = By.xpath("//button[@class='VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ mN1ivc zhBWDc Pk9dvb']");
+    private final By CLEAN_URL_BUTTON = By.xpath("//span[@aria-label='Удалить URL сайта']");
 
     public void setInputField(String text) {
         driver.findElement(INPUT_FIELD).sendKeys(text);
@@ -84,9 +85,14 @@ public class StartPage {
     public void inputURL(String testURL){
         driverWait.until(ExpectedConditions.elementToBeClickable(URL_INPUT_FIELD));
         driver.findElement(URL_INPUT_FIELD).sendKeys(testURL);
-//        Actions actions = new Actions(driver);
-//        actions.click(driver.findElement(TRANSLATE_SITE_BUTTON)).perform();
         driver.findElement(TRANSLATE_SITE_BUTTON).click();
     }
+
+    public void cleanURLField(){
+        if(driver.findElement(CLEAN_URL_BUTTON).isDisplayed()){
+            driver.findElement(CLEAN_URL_BUTTON).click();
+        }
+    }
+
 
 }

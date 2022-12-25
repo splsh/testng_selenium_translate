@@ -7,8 +7,8 @@ import org.testng.annotations.*;
 import java.util.Arrays;
 
 /**
- * Tests made for TestNG and Selenium practice.
- * It takes Google Translate main page and do some functional tests with it.
+ * This class tests main function of Google Translate
+ * It translates some words and phrases on 2 languages
  */
 public class TextAreaTest {
     StartPage startPage = new StartPage();
