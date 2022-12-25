@@ -2,4 +2,5 @@
 
  Tests made for TestNG and Selenium practice.
  It takes Google Translate main page and do some functional tests with it.
+ Check test folder (src/test/java/org/alexeistanovskii).
  
